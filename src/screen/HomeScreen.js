@@ -43,7 +43,7 @@ export default HomeScreen;
 
 const HeaderComponent = ({ navigation }) => {
   return (
-    <VStack m="5">
+    <VStack>
       <SliderComponent navigation={navigation} />
       {/* <CustomeSlider/> */}
 
@@ -90,7 +90,7 @@ const SliderComponent = ({ navigation }) => {
   const onChange = (nativeEvent) => {};
 
   return (
-    <VStack m="5">
+    <VStack>
       <View style={styles.wrap}>
         {/* <ServicesSlider /> */}
         <ScrollView
@@ -154,7 +154,7 @@ const FooterComponent = () => {
       <ReviewSlider />
 
       <View>
-        <Heading w="100%" textAlign="center" fontSize="2xl" my="1">
+        <Heading w="100%" textAlign="center" fontSize="2xl">
           How does it work?
         </Heading>
         <Image

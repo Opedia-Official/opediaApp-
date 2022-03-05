@@ -56,13 +56,13 @@ function ReviewItem({ image, index }) {
           lorem on a but not scrollEventThrottle. You will only receive one
           event. Using 16 you don't need as much precision.
         </Text>
-        <Text style={styles.nameText} alignItems="right" textAlign="right">
+        <Text style={styles.nameText} alignItems="flex-start" textAlign="right">
           Dihan abir
         </Text>
         <Text
           style={styles.DesText}
           mb="2"
-          alignItems="right"
+          alignItems="flex-end"
           textAlign="right"
         >
           Web & Software development
@@ -81,17 +81,17 @@ const styles = StyleSheet.create({
     //   height: HEIGHT * 0.25,
   },
   reviewView: {
-    // backgroundColor: "#3EA3DC",
-    backgroundImage: "linear-gradient(180deg, #3EA3DC 0%, #27348B 100%)",
-    margin: "4px",
-    borderRadius: "10px",
+    backgroundColor: "#3EA3DC",
+    // background: "linear-gradient(180deg, #3EA3DC 0%, #27348B 100%)",
+    margin: 4,
+    borderRadius: 10,
     width: "52.8%",
     display: "flex",
     flexDirection: "row",
   },
   reviewImage: {
     alignSelf: "center",
-    margin: "10px",
+    margin: 10,
   },
   nameText: {
     fontWeight: "bold",
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     color: "#FECA3F",
   },
   reviewContent: {
-    width: "60.8%",
+    width: "10.8%",
   },
   wrapText: {
     padding: 20,

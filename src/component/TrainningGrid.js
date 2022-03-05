@@ -8,7 +8,7 @@ const images = [
   "https://images.unsplash.com/photo-1636565139043-494837ac6070?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=602&q=80",
 ];
 
-const ImageGrid = () => {
+const TrainningGrid = () => {
   const [justifyContent, setJustifyContent] = useState("flex-start");
 
   return (
@@ -58,13 +58,13 @@ const PreviewLayout = ({
           <View style={styles.reviewImage}>
             <Image
               style={{
-                height: 120,
+                height: 150,
                 borderRadius: 10,
                 width: "100%",
-                objectFit: "cover",
+                resizeMode: "cover",
               }}
               //   key={index}
-              resizeMode="stretch"
+              resizeMode="cover"
               source={{
                 uri: "https://images.unsplash.com/photo-1646437158075-6243c40349ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
               }}
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: "aliceblue",
   },
   box: {
-    width: 50,
+    width: 100,
     height: 50,
   },
   row: {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     marginHorizontal: "1%",
     marginBottom: 6,
-    minWidth: "48%",
+    minWidth: "100%",
     textAlign: "center",
 
     backgroundColor: "#FFFFFF",
@@ -128,4 +128,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ImageGrid;
+export default TrainningGrid;

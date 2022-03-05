@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import ImageGrid from "../component/ImageGrid";
+import TrainningGrid from "../component/TrainningGrid";
 
-export default function Gallery() {
+export default function Trainning() {
   return (
     <View style={styles.container}>
       <Text style={styles.galleryTitle}>Take a look on our memories</Text>
 
-      <ImageGrid />
+      <TrainningGrid />
     </View>
   );
 }

@@ -15,6 +15,8 @@ import Screen1 from "../screen/Screen1";
 import Screen2 from "../screen/Screen2";
 import Gallery from "../screen/Gallery";
 import Portfolio from "../screen/Portfolio";
+import About from "../screen/About";
+import Training from "../screen/Trainning";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -54,6 +56,8 @@ function Drawerapp() {
         component={Gallery}
       />
       <Drawer.Screen name="Portfolio" component={Portfolio} />
+      <Drawer.Screen name="About" component={About} />
+      <Drawer.Screen name="Training" component={Training} />
     </Drawer.Navigator>
   );
 }

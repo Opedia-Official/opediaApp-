@@ -15,7 +15,7 @@ import {
   Button,
   LayoutAnimation,
   Platform,
-  StyleSheet,  
+  StyleSheet,
   UIManager,
   View,
 } from "react-native";
