@@ -7,7 +7,7 @@ const InsuranceCard = ({ data }) => {
   // console.log({ data });
   return (
     <Button
-    // style={{margin:"10px", border: 'none',background: data.color  }}
+      // style={{margin:"10px", border: 'none',background: data.color  }}
       bg={data.color}
       m="2"
       w="45%"
@@ -31,22 +31,10 @@ const InsuranceCard = ({ data }) => {
           color="black"
           // width="100%"
           my="1"
-          
-          // p='1'
-        >{data.title}
-        </Text>
-        <Text
-          alignItems="center"
-          textAlign="center"
-          // textAlign="justify"
-          fontSize="sm"
-          color="muted.500"
-          // width="100%"
-          my="1"
-          
+
           // p='1'
         >
-          {data.description}
+          {data.title}
         </Text>
       </Box>
     </Button>

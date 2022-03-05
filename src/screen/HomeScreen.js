@@ -19,7 +19,6 @@ import insuranceData from "../data/data";
 import ReviewSlider from "../component/ReviewSlider";
 import CustomeSlider from "../component/slider/CustomeSlider";
 
-
 const HomeScreen = ({ navigation }) => {
   return (
     <AppScreen>
@@ -47,8 +46,8 @@ const HeaderComponent = ({ navigation }) => {
     <VStack m="5">
       <SliderComponent navigation={navigation} />
       {/* <CustomeSlider/> */}
-    
-      <Box mt="5">
+
+      <Box>
         <VStack maxW="100%" mx="10px" alignItems="center">
           <Heading w="100%" textAlign="center" fontSize="2xl" my="1">
             We team of experience It Specialties.
@@ -117,8 +116,6 @@ const SliderComponent = ({ navigation }) => {
   );
 };
 
-
-
 // const ReviewSlider = ({ navigation }) => {
 //   const [imgActive, setImgActive] = useState(0);
 
@@ -151,24 +148,20 @@ const SliderComponent = ({ navigation }) => {
 //   );
 // };
 
-
-
-
 const FooterComponent = () => {
   return (
     <VStack mt="5" maxW="100%">
-        <ReviewSlider  />
+      <ReviewSlider />
 
-    <View>
-    <Heading w="100%" textAlign="center" fontSize="2xl" my="1">
+      <View>
+        <Heading w="100%" textAlign="center" fontSize="2xl" my="1">
           How does it work?
         </Heading>
-      <Image 
-        source={require('../assets/gif/AE.gif')}  
-        style={{width: 400, height: 700 }}
-    />
-    </View>
-
+        <Image
+          source={require("../assets/gif/AE.gif")}
+          style={{ width: 400, height: 700 }}
+        />
+      </View>
 
       <Box my="2" w="100%" alignItems="center">
         <Heading w="100%" textAlign="center" fontSize="2xl" my="1">
