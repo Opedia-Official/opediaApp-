@@ -1,130 +1,221 @@
-import React, { useState } from "react";
-import { View, TouchableOpacity, Text, StyleSheet, Image } from "react-native";
+import React from "react";
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  ScrollView,
+} from "react-native";
 
 const images = [
-  "https://images.unsplash.com/photo-1645474906518-6542b42f9bef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80",
-  "https://images.unsplash.com/photo-1633094217480-3e38455d55e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=937&q=80",
-  "https://images.unsplash.com/photo-1633354089011-48a7f08f3567?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=770&q=80",
-  "https://images.unsplash.com/photo-1636565139043-494837ac6070?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=602&q=80",
+  {
+    title: "Digital Marketing with Career Guideline",
+    outlet: [
+      {
+        title: "Course",
+        value: "Digital Marketing with Career Guideline",
+      },
+      {
+        title: "Duration",
+        value: "72 Hours",
+      },
+      {
+        title: "Classes",
+        value: "15",
+      },
+      {
+        title: "Classes",
+        value: "i3, 8GB RAM, 240GB SSD,1TB HDD ",
+      },
+      {
+        title: "Course Fee Online",
+        value: " 10,000/=",
+      },
+      {
+        title: "Course Fee Offline ",
+        value: "15,000/= ",
+      },
+      {
+        title: "Pre-Requirement ",
+        value:
+          "Computer Basic, Office Applications, Basic of Social Media & Email ",
+      },
+    ],
+    image:
+      "https://images.unsplash.com/photo-1491951931722-5a446214b4e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=767&q=80",
+  },
+
+  {
+    title: "Web Development",
+    outlet: [
+      {
+        title: "Course",
+        value: "Web Design Advance",
+      },
+      {
+        title: "Duration",
+        value: "72 Hours",
+      },
+      {
+        title: "Classes",
+        value: "36",
+      },
+      {
+        title: "Classes",
+        value: "i3, 8GB RAM, 240GB SSD, 1TB HDD",
+      },
+      {
+        title: "Course Fee Online",
+        value: " 10,000/=",
+      },
+      {
+        title: "Course Fee Offline ",
+        value: "15,000/= ",
+      },
+      {
+        title: "Pre-Requirement ",
+        value:
+          "Computer Basic, Office Applications, Basic of Social Media & Email ",
+      },
+    ],
+    image:
+      "https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80",
+  },
+
+  {
+    title: "Motion Graphics",
+    outlet: [
+      {
+        title: "Course",
+        value: "Motion Graphics with Freelancing",
+      },
+      {
+        title: "Duration",
+        value: "72 Hours",
+      },
+      {
+        title: "Classes",
+        value: "36",
+      },
+      {
+        title: "Classes",
+        value: "Desktop, i5 8th Generation, 16GB Ram, 240GB SSD, 1TB HDD",
+      },
+      {
+        title: "Course Fee Online",
+        value: "15,000/=",
+      },
+      {
+        title: "Course Fee Offline ",
+        value: "20,000/=",
+      },
+      {
+        title: "Pre-Requirement ",
+        value:
+          "Graphics Design, Office Applications, Basic of Social Media & Email",
+      },
+    ],
+    image:
+      "https://images.unsplash.com/photo-1628494391268-c9935bc384d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
+  },
+
+  {
+    title: "Graphic Design",
+    outlet: [
+      {
+        title: "Course",
+        value: "Graphic Design with Freelancing",
+      },
+      {
+        title: "Duration",
+        value: "72 Hours",
+      },
+      {
+        title: "Classes",
+        value: "15",
+      },
+      {
+        title: "Classes",
+        value: "i5 7th Generation",
+      },
+      {
+        title: "Course Fee Online",
+        value: " 10,000/=",
+      },
+      {
+        title: "Course Fee Offline ",
+        value: "15,000/= ",
+      },
+      {
+        title: "Pre-Requirement ",
+        value:
+          "Computer Basic, Office Applications, Basic of Social Media & Email",
+      },
+    ],
+    image:
+      "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+  },
 ];
 
-const TrainningGrid = () => {
-  const [justifyContent, setJustifyContent] = useState("flex-start");
-
+const TrainningGrid = ({ navigation }) => {
+  // console.log("navigation", navigation);
   return (
-    <PreviewLayout
-      label="justifyContent"
-      selectedValue={justifyContent}
-      values={[
-        "flex-start",
-        "flex-end",
-        "center",
-        "space-between",
-        "space-around",
-        "space-evenly",
-      ]}
-      setSelectedValue={setJustifyContent}
-    >
-      <View style={[styles.box, { backgroundColor: "powderblue" }]} />
-      <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-      <View style={[styles.box, { backgroundColor: "steelblue" }]} />
-    </PreviewLayout>
-  );
-};
-
-const PreviewLayout = ({
-  label,
-  children,
-  values,
-  selectedValue,
-  setSelectedValue,
-}) => (
-  <View style={{ padding: 10, flex: 1 }}>
-    <View style={styles.row}>
-      {values.map((value) => (
+    <ScrollView style={{ marginBottom: 70 }}>
+      {images.map((value, index) => (
         <TouchableOpacity
-          key={value}
-          onPress={() => setSelectedValue(value)}
-          style={[styles.button, selectedValue === value && styles.selected]}
+          key={index}
+          style={styles.selected}
+          onPress={() => {
+            navigation.navigate("trainingItem", { data: value });
+          }}
         >
-          <Text
-            style={[
-              styles.buttonLabel,
-              selectedValue === value && styles.selectedLabel,
-            ]}
-          >
-            {value}
-          </Text>
-          <View style={styles.reviewImage}>
-            <Image
+          <View style={styles.viewContainer}>
+            <ImageBackground
+              source={{ uri: value.image }}
+              imageStyle={{ borderRadius: 10 }}
               style={{
-                height: 150,
-                borderRadius: 10,
                 width: "100%",
-                resizeMode: "cover",
+                height: 150,
               }}
-              //   key={index}
-              resizeMode="cover"
-              source={{
-                uri: "https://images.unsplash.com/photo-1646437158075-6243c40349ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-              }}
-            />
+            >
+              <Text style={styles.buttonLabel}>Dihan abir</Text>
+            </ImageBackground>
+            <Text style={styles.trainingLabel}>{value.title}</Text>
           </View>
         </TouchableOpacity>
       ))}
-    </View>
-  </View>
-);
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 8,
-    backgroundColor: "aliceblue",
-  },
-  box: {
-    width: 100,
-    height: 50,
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-  },
-  button: {
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    borderRadius: 4,
-    // backgroundColor: "oldlace",
-    alignSelf: "flex-start",
-    marginHorizontal: "1%",
-    marginBottom: 6,
-    minWidth: "100%",
-    textAlign: "center",
-
-    backgroundColor: "#FFFFFF",
-    /* soft shadow */
-
-    // boxShadow: "1px 4px 10px rgba(243, 243, 243, 1)",
-    borderRadius: 8,
+  viewContainer: {
+    backgroundColor: "#e9e9e9",
+    borderRadius: 10,
+    padding: 10,
   },
   selected: {
-    backgroundColor: "#FFDA76",
-    borderWidth: 0,
+    padding: 7,
+    marginHorizontal: 7,
+    borderColor: "red",
+    borderRadius: 20,
+
+    // marginVertical: 15,
   },
   buttonLabel: {
     fontSize: 12,
     fontWeight: "500",
     color: "coral",
-    height: "3vh",
-    margin: 6,
+    height: 100,
+    padding: 10,
   },
-  selectedLabel: {
-    color: "white",
-  },
-  label: {
-    textAlign: "center",
-    marginBottom: 10,
-    fontSize: 24,
+  trainingLabel: {
+    fontWeight: "bold",
+    fontSize: 14,
+    lineHeight: 22,
+
+    color: "#F6851F",
   },
 });
 

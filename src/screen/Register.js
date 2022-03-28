@@ -78,7 +78,7 @@ const Register = ({ navigation }) => {
                 justifyContent="center"
                 flexDirection="row"
               >
-                <Pressable onPress={() => navigation.navigate("SignIn")}>
+                <Pressable onPress={() => navigation.navigate("HomeScreen")}>
                   <Text color="blue.800">Go to Home.</Text>
                 </Pressable>
               </Box>

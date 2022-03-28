@@ -17,6 +17,11 @@ import Gallery from "../screen/Gallery";
 import Portfolio from "../screen/Portfolio";
 import About from "../screen/About";
 import Training from "../screen/Trainning";
+import MyCarousel from "../About";
+import PortfolioItem from "../screen/PortfolioItem";
+import Galleryitem from "../screen/Galleryitem";
+import TrainingItem from "../screen/TrainingItem";
+import Services from "../screen/Services";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -26,7 +31,6 @@ function Drawerapp() {
     <Drawer.Navigator
       initialRouteName="HomeScreen"
       // drawerStyle={styles.drawer}
-      initialRouteName="HomeScreen"
       drawerPosition="right"
       drawerContentOptions={{
         activeTintColor: "white",
@@ -34,6 +38,9 @@ function Drawerapp() {
         itemStyle: { alignItems: "flex-end" },
         tabBarActiveTintColor: "#e67a15",
         tabBarInactiveTintColor: "gray",
+      }}
+      screenOptions={{
+        headerShown: false,
       }}
     >
       <Drawer.Screen
@@ -55,8 +62,9 @@ function Drawerapp() {
         name="Gallery"
         component={Gallery}
       />
+      <Drawer.Screen name="Services" component={Services} />
       <Drawer.Screen name="Portfolio" component={Portfolio} />
-      <Drawer.Screen name="About" component={About} />
+      <Drawer.Screen name="About" component={MyCarousel} />
       <Drawer.Screen name="Training" component={Training} />
     </Drawer.Navigator>
   );
@@ -75,6 +83,9 @@ const AppNavigation = () => {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="SubScreen" component={SubScreen} />
         <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+        <Stack.Screen name="PortfolioItem" component={PortfolioItem} />
+        <Stack.Screen name="Galleryitem" component={Galleryitem} />
+        <Stack.Screen name="trainingItem" component={TrainingItem} />
       </Stack.Navigator>
     </NavigationContainer>
   );

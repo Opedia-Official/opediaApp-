@@ -1,7 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { Image, ScrollView, Text, VStack, View, Heading } from "native-base";
-import Logoslider from "./slider/LogoSlider";
 
 const images = [
   "https://images.unsplash.com/photo-1645474906518-6542b42f9bef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80",
@@ -10,39 +9,7 @@ const images = [
   "https://images.unsplash.com/photo-1636565139043-494837ac6070?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=602&q=80",
 ];
 
-function ReviewSlider() {
-  const [imgActive, setImgActive] = useState(0);
-
-  const onChange = (nativeEvent) => {};
-
-  return (
-    <VStack>
-      <View style={styles.wrap}>
-        {/* <ServicesSlider /> */}
-        <Heading ResponsiveValue="container" fontSize="lg" mb="5" bold>
-          Review
-        </Heading>
-        <Logoslider />
-        <ScrollView
-          onScroll={({ nativeEvent }) => onChange(nativeEvent)}
-          showsHorizontalScrollIndicator={false}
-          pagingEnabled
-          horizontal
-          alwaysBounceHorizontal={true}
-          scrollEnabled={true}
-          style={styles.wrap}
-        >
-          {images.map((image, index) => (
-            <ReviewItem image={image} index={index} />
-          ))}
-        </ScrollView>
-      </View>
-    </VStack>
-  );
-}
-
-export default function ReviewItem({ item, index }) {
-  const { illustration, name, designation } = item;
+export default function TeamSliderItem({ image, index }) {
   return (
     <View style={styles.reviewView} key={index}>
       <View style={styles.reviewImage}>
@@ -50,15 +17,13 @@ export default function ReviewItem({ item, index }) {
           style={styles.image}
           key={index}
           resizeMode="stretch"
-          source={{ uri: illustration }}
+          source={{ uri: images[2] }}
+          alt="D"
         />
       </View>
       <View style={styles.reviewContent}>
-        <Text style={styles.wrapText} alignItems="center" textAlign="center">
-          lorem on a but not scrollEventThrottle. You will only.
-        </Text>
         <Text style={styles.nameText} alignItems="flex-start" textAlign="right">
-          {name}
+          Dihan abir
         </Text>
         <Text
           style={styles.DesText}
@@ -66,7 +31,7 @@ export default function ReviewItem({ item, index }) {
           alignItems="flex-end"
           textAlign="right"
         >
-          {designation}
+          Web & Software development
         </Text>
       </View>
     </View>
@@ -78,7 +43,7 @@ const HEIGHT = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   reviewView: {
-    backgroundColor: "#3EA3DC",
+    backgroundColor: "#fff",
     borderRadius: 10,
     width: "97%",
     display: "flex",
@@ -89,26 +54,30 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   nameText: {
-    fontWeight: "bold",
-    color: "#fff",
+    padding: 5,
+    fontWeight: "normal",
+    color: "#000",
+    fontSize: 18,
+    lineHeight: 19,
   },
   DesText: {
     fontWeight: "bold",
     color: "#FECA3F",
   },
   reviewContent: {
-    width: "55%",
+    width: "45%",
+    paddingTop: 10,
+    textAlign: "right",
   },
   wrapText: {
-    padding: 20,
+    // padding: 20,
     color: "#fff",
-    textAlign: "right",
-    // textAlign: "justify",
   },
   image: {
     alignSelf: "center",
 
-    height: 150,
-    width: 150,
+    height: 90,
+    width: 90,
+    borderRadius: 10,
   },
 });
